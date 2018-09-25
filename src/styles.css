@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Additions for bootstrap and fontawesome after installing the base packages
+    npm install bootstrap font-awesome --save
+*/
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
