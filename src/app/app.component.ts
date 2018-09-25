@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClientCallsService } from './http-client-calls.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  webpagetotal
+  crashreport
+  webpagehealth
+  
+  constructor (private webcountercall: HttpClientCallsService){};
+  
+  WebPageCount() {
+    this.webcountercall.getWebPageCount()
+      .subscribe(
+        (response) => {
+          this.webpagetotal = response },
+        (error) => console.log(error)
+      );
+  }
+
+  WebPageHealth() {
+    this.webcountercall.getWebPageHealth()
+      .subscribe(
+        (response) => {
+          this.webpagehealth = response },
+        (error) => console.log(error)
+      );
+  }
+
+  KillService() {
+    this.webcountercall.killWebPageCount()
+      .subscribe(
+        (response) => {
+          this.crashreport = response },
+        (error) => console.log(error)
+      );
+  }
   title = 'wpc-fe';
 }
