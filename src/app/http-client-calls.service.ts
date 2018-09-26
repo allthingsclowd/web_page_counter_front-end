@@ -15,19 +15,22 @@ export class HttpClientCallsService {
 
   getWebPageCount() {
  
-    return this.httpClient.get('http://127.0.0.1:2337/192.168.2.250:9090/', {responseType:'text'});
+    return this.httpClient.get('http://192.168.2.250:9090/', {responseType:'text'});
     
   }
 
   killWebPageCount() {
-    
-    return this.httpClient.post('http://127.0.0.1:2337/192.168.2.250:9090/crash', {responseType:'text'});
+    const httpOptions = {
+      headers: new HttpHeaders({
+      })
+    };
+    return this.httpClient.post('http://192.168.2.250:9090/crash', httpOptions, {responseType:'text'} );
     
   }
 
   getWebPageHealth() {
     
-    return this.httpClient.get('http://127.0.0.1:2337/192.168.2.250:9090/health', {responseType:'text'});
+    return this.httpClient.get('http://192.168.2.250:9090/health', {responseType:'text'});
     
   }
   
