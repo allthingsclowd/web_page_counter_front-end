@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class HttpClientCallsService {
 
   constructor(private httpClient: HttpClient) { }
@@ -15,11 +13,8 @@ export class HttpClientCallsService {
   }
 
   killWebPageCount() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-      })
-    };
-    return this.httpClient.post('http://192.168.2.250:9090/crash', httpOptions, {responseType: 'text'} );
+
+    return this.httpClient.post('http://192.168.2.250:9090/crash', {responseType: 'text'} );
     
   }
 
