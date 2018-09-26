@@ -8,17 +8,19 @@ cache:
   - node_modules
 install:
 - npm install
-- ls -al
 script:
 - ng lint
 - ng build --prod --build-optimizer
+- ls -al
+before_deploy:
+ - tar -zcvf webcounterpagefrontend.tar.gz dist
 deploy:
   provider: releases
   api_key:
     secure: qAqnSzV1F1RgLGZC+EQKbsFlHdggX9E5oD7RgLuOumdOxnpOIYmfSGrWE+vP5Un0LQWPGjzzjoSY86+zDYKJI5He6bSVKjBkl2jWd0JSsdfmJZSzWD0wttXoBjpchou300k10Yr/OjSj83zeJcHavK3gK7Np/CJKG3hE7g7nABydJ13k2+EV+AmzheUwOkPBolW2VDrq8bMBIeJqUcAkzZpQu9/F9Nki6OaxpAUR0ucbribKityFjaT5W2vZ4NbUqWc3fxRgjbbM4U71rge12aCtTQLTxdGErcThDFFw0/xmON/7YaSwtNHOhtiEPHmjQaTUJY8Bm8uLnZ5sja9DLLeazHcz5bIpKG77TtN0MQbLTQ7DF509p1ep+Wqu398nLqnDoHoyhLFoqmBNzxeuLZ7rF9k+sUk0mE8KAy35OyME+ThXnX2GKMxMsA3p8Xy06ljsug0D3/qeBh2VHFlDlpvVSWGUm0j++vipfHO+ilvj+zAsYG8K2hiKKuSO2uker/UiYdOpwOawggaKW2sZO/KWrGvzXg9ohPuHwxpVJyJVblV0+nAVAqZzfESzKUIvjTA/nU1HdUOwS4d9TNDDJS6wO5fqqcq39v5YWpnl/1y46MAxbNuNR1EFRi2lnbkUUtLTv0ipkMyFzt+mnXMKcc9ZU7VhOMuwRJf6/znBGD8=
   file_glob: true
   file: 
-    - "dist/*"
+    - "webcounterpagefrontend.tar.gz"
   skip_cleanup: true
   on:
     repo: allthingsclowd/wep_page_counter_front-end
