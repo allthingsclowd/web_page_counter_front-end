@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClientCallsService } from './http-client-calls.service'
+import { HttpClientCallsService } from './http-client-calls.service';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +8,17 @@ import { HttpClientCallsService } from './http-client-calls.service'
 })
 export class AppComponent {
 
-  webpagetotal
-  crashreport
-  webpagehealth
+  webpagetotal;
+  crashreport;
+  webpagehealth;
+  title = 'wpc-fe';
   
-  constructor (private webcountercall: HttpClientCallsService){};
-  
+  constructor (private webcountercall: HttpClientCallsService) {}
   WebPageCount() {
     this.webcountercall.getWebPageCount()
       .subscribe(
         (response) => {
-          this.webpagetotal = response },
+          this.webpagetotal = response; },
         (error) => console.log(error)
       );
   }
@@ -27,7 +27,7 @@ export class AppComponent {
     this.webcountercall.getWebPageHealth()
       .subscribe(
         (response) => {
-          this.webpagehealth = response },
+          this.webpagehealth = response; },
         (error) => console.log(error)
       );
   }
@@ -36,9 +36,9 @@ export class AppComponent {
     this.webcountercall.killWebPageCount()
       .subscribe(
         (response) => {
-          this.crashreport = response },
+          this.crashreport = response; },
         (error) => console.log(error)
       );
   }
-  title = 'wpc-fe';
+  
 }
