@@ -7,7 +7,7 @@ cache:
   directories:
   - node_modules
 install:
-- npm install -g
+- npm install
 - ls -al
 script:
 - ng lint
