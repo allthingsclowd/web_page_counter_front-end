@@ -13,7 +13,7 @@ script:
 - ng build --prod --build-optimizer
 - ls -al
 before_deploy:
- - tar -zcvf webcounterpagefrontend.tar.gz dist/wpc-fe
+ - tar -zcvf webcounterpagefrontend.tar.gz -C dist wpc-fe
 deploy:
   provider: releases
   api_key:
