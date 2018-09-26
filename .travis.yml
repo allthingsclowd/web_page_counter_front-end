@@ -8,6 +8,7 @@ cache:
   - node_modules
 install:
 - npm install -g @angular/cli
+- npm install -g rxjs
 script:
 - ng lint
 - ng build --prod --build-optimizer
