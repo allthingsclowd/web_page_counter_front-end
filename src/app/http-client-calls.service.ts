@@ -23,5 +23,17 @@ export class HttpClientCallsService {
     return this.httpClient.get('http://192.168.2.250:9090/health', {responseType: 'text'});
     
   }
+
+  getConsulHealthyNodeCount() {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    
+    return this.httpClient.get('http://127.0.0.1:2337/192.168.2.11:8500/v1/health/service/webpagecounter?status=passing', httpOptions);
+    
+  }
   
 }

@@ -11,6 +11,7 @@ export class AppComponent {
   webpagetotal;
   crashreport;
   webpagehealth;
+  consulservicecount: any;
   title = 'wpc-fe';
   
   constructor (private webcountercall: HttpClientCallsService) {}
@@ -19,6 +20,15 @@ export class AppComponent {
       .subscribe(
         (response) => {
           this.webpagetotal = response; },
+        (error) => console.log(error)
+      );
+  }
+
+  WebPageCountActiveServices(){
+    this.webcountercall.getConsulHealthyNodeCount()
+      .subscribe(
+        (response) => {
+          this.consulservicecount = response; },
         (error) => console.log(error)
       );
   }
@@ -42,3 +52,4 @@ export class AppComponent {
   }
   
 }
+

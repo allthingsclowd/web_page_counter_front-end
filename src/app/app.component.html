@@ -21,3 +21,20 @@
     <h1>{{ this.crashreport }}</h1> 
     <button class="btn btn-lg btn-danger" (click)="KillService()">Kill a Service</button>
 </div>
+
+<div class="container">
+  <div style="text-align:center" class="jumbotron">
+    <div class="gauges-container">
+      <mwl-gauge
+        *ngIf="this.consulservicecount.length"
+        class="two"
+        [max]="10"
+        [dialStartAngle]="180"
+        [dialEndAngle]="0"
+        [value]=this.consulservicecount.length
+        [animated]="true"
+        [animationDuration]="5">
+      </mwl-gauge>
+    </div>
+    <button class="btn btn-lg btn-default" (click)="WebPageCountActiveServices()">Good Service Count</button>
+</div>
