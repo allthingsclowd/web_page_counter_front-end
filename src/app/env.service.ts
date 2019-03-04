@@ -7,7 +7,7 @@ export class EnvService {
   public apiUrl = '';
 
   // Ensure env.js ran sucessfully
-  public envFileLoaded = false
+  public envFileLoaded = false;
 
   constructor() {
   }
