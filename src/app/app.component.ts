@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClientCallsService } from './http-client-calls.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +14,7 @@ export class AppComponent {
   webpagehealth;
   consulservicecount: any;
   title = 'wpc-fe';
+ 
   
   constructor (private webcountercall: HttpClientCallsService) {}
   WebPageCount() {
@@ -32,6 +34,8 @@ export class AppComponent {
         (error) => console.log(error)
       );
   }
+  
+
 
   WebPageHealth() {
     this.webcountercall.getWebPageHealth()
