@@ -23,5 +23,5 @@ deploy:
     - "webcounterpagefrontend.tar.gz"
   skip_cleanup: true
   on:
-    repo: allthingsclowd/wep_page_counter_front-end
+    repo: allthingsclowd/web_page_counter_front-end
     tags: true
